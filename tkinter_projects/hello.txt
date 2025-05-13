@@ -1,0 +1,2 @@
+('sajjad ali', 'male', '03072735261', '6565', 'no paymant i have paid yet', 1)
+('asad ali', 'male', '03072735261', '6565', 'no paymant i have paid yet', 1)

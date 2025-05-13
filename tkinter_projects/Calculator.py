@@ -1,0 +1,105 @@
+from tkinter import*
+root=Tk()
+def click(event):
+    global scval
+    text=event.widget.cget("text")
+    print(text)
+    if text =="=":
+        if scval.get().isdigit():
+            value=int(scval.get())
+        else:
+            try:
+                value=eval(screen.get())
+            except Exception as e:
+                print(e)
+                value="Error"
+    
+        scval.set(value)
+        screen.update()    
+    elif text=="C":
+        scval.set("")
+        screen.update()
+    else:
+        scval.set(scval.get()+text)
+        screen.update()
+
+root.geometry("500x800")
+root.title("HEllo dears")
+scval=StringVar()
+scval.set("")
+
+screen=Entry(root,textvariable=scval,font="lucida 30 bold",bg="white")
+screen.pack(fill=X,ipadx=8,pady=18,padx=8)
+
+f=Frame(root,bg="grey")
+b=Button(f,text="9",padx=15,pady=5,font="lucida 35 bold")
+b.pack(side=LEFT,padx=18,pady=5)
+b.bind("<Button-1>",click)
+b=Button(f,text="8",padx=15,pady=5,font="lucida 35 bold")
+b.pack(side=LEFT,padx=18,pady=5)
+b.bind("<Button-1>",click)
+b=Button(f,text="7",padx=15,pady=5,font="lucida 35 bold")
+b.pack(side=LEFT,padx=18,pady=5)
+b.bind("<Button-1>",click)
+f.pack()
+f=Frame(root,bg="grey")
+b=Button(f,text="6",padx=15,pady=8,font="lucida 35 bold")
+b.pack(side=LEFT,padx=18,pady=5)
+b.bind("<Button-1>",click)
+b=Button(f,text="5",padx=15,pady=8,font="lucida 35 bold")
+b.pack(side=LEFT,padx=18,pady=5)
+b.bind("<Button-1>",click)
+b=Button(f,text="4",padx=15,pady=8,font="lucida 35 bold")
+b.pack(side=LEFT,padx=18,pady=5)
+b.bind("<Button-1>",click)
+f.pack()
+
+f=Frame(root,bg="grey")
+b=Button(f,text="3",padx=15,pady=8,font="lucida 35 bold")
+b.pack(side=LEFT,padx=18,pady=5)
+b.bind("<Button-1>",click)
+b=Button(f,text="2",padx=15,pady=8,font="lucida 35 bold")
+b.pack(side=LEFT,padx=18,pady=5)
+b.bind("<Button-1>",click)
+b=Button(f,text="1",padx=15,pady=8,font="lucida 35 bold")
+b.pack(side=LEFT,padx=18,pady=5)
+b.bind("<Button-1>",click)
+f.pack()
+
+f=Frame(root,bg="grey")
+b=Button(f,text="0",padx=15,pady=8,font="lucida 35 bold")
+b.pack(side=LEFT,padx=20,pady=5)
+b.bind("<Button-1>",click)
+b=Button(f,text="-",padx=18,pady=8,font="lucida 35 bold")
+b.pack(side=LEFT,padx=20,pady=5)
+b.bind("<Button-1>",click)
+b=Button(f,text="*",padx=15,pady=8,font="lucida 35 bold")
+b.pack(side=LEFT,padx=20,pady=5)
+b.bind("<Button-1>",click)
+f.pack()
+
+f=Frame(root,bg="grey")
+b=Button(f,text="/",padx=15,pady=5,font="lucida 35 bold")
+b.pack(side=LEFT,padx=18,pady=5)
+b.bind("<Button-1>",click)
+b=Button(f,text="%",padx=15,pady=5,font="lucida 35 bold")
+b.pack(side=LEFT,padx=18,pady=5)
+b.bind("<Button-1>",click)
+b=Button(f,text="=",padx=14,pady=5,font="lucida 35 bold")
+b.pack(side=LEFT,padx=18,pady=5)
+b.bind("<Button-1>",click)
+
+f.pack()
+f=Frame(root,bg="grey")
+b=Button(f,text="C",padx=11,pady=8,font="lucida 35 bold")
+b.pack(side=LEFT,padx=16,pady=5)
+b.bind("<Button-1>",click)
+b=Button(f,text=".",padx=24,pady=10,font="lucida 35 bold")
+b.pack(side=LEFT,padx=16,pady=5)
+b.bind("<Button-1>",click)
+b=Button(f,text="00",padx=5,pady=10,font="lucida 35 bold")
+b.pack(side=LEFT,padx=16,pady=5)
+b.bind("<Button-1>",click)
+f.pack()
+
+root.mainloop()
